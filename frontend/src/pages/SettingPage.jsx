@@ -12,7 +12,7 @@ const SettingPage = () => {
   const {theme,setTheme}=useThemeStore();
   const {authUser}=useAuthStore();
   return (
-    <div className="h-screen container mx-auto px-4 pt-10 max-w-5xl overflow-auto">
+    <div className="h-screen container mx-auto py-5 max-w-5xl overflow-hidden">
       <div className="space-y-6">
         <div className="flex flex-col gap-1">
           <h2 className="text-lg font-semibold">
