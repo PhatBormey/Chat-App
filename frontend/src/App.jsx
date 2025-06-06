@@ -16,13 +16,14 @@ import { useChatStore } from './store/useChatStore';
 
 
 function App() {
-  const {authUser,checkAuth,isCheckingAuth}=useAuthStore();
+  const {authUser,checkAuth,isCheckingAuth,onlineUsers}=useAuthStore();
   const {theme}=useThemeStore();
   const {getUsers} =useChatStore();
   
   useEffect(()=>{
-    checkAuth()
+    checkAuth();
   },[checkAuth]);
+  
   if(isCheckingAuth && !authUser){
     return(
       <div className='flex items-center justify-center h-screen'>
@@ -31,8 +32,8 @@ function App() {
     )
   }
   return (
-    <div data-theme={theme} className='w-screen '>
-      <NavBar/>
+    <div data-theme={theme} className='w-screen'>
+      <NavBar />
       <Routes>
         <Route path='/' element={authUser ? <HomePage/> : <Navigate to='/login'/>} />
         <Route path='/signup' element={!authUser ? <SignUpPage/> : <Navigate to='/'/>} />
@@ -40,7 +41,7 @@ function App() {
         <Route path='/setting' element={<SettingPage/>} />
         <Route path='/profile' element={authUser ? <ProfilePage/> : <Navigate to='/login'/>} />
       </Routes>
-      <FooTer/>
+      {/* <FooTer/> */}
       <Toaster
         position="top-center"
         reverseOrder={false}

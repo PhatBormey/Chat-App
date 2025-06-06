@@ -8,4 +8,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  // build: {
+  //   sourcemap: true, // This is for production builds; dev mode usually has it enabled
+  // },
 })
